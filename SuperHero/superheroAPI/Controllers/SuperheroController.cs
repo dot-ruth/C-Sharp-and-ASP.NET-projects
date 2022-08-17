@@ -8,9 +8,7 @@ namespace superheroAPI.Controllers
     public class SuperheroController : ControllerBase
     {
 
-        private static List<superhero> heroes =new List<superhero> {
-                
-                };
+        
         private readonly datacontext context;
 
         public SuperheroController(datacontext context)
@@ -49,8 +47,7 @@ namespace superheroAPI.Controllers
             hero.FirstName = request.FirstName;
             hero.LastName = request.LastName;
             hero.Place = request.Place;
-             
-            
+    
             await context.SaveChangesAsync();
             return Ok(await context.superhero.ToListAsync());
         }

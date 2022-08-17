@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using webAPI.Controllers.Data;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using webAPI.Models;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+
+
 
 namespace webAPI.Controllers
 {
@@ -9,11 +13,13 @@ namespace webAPI.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private readonly DataContext context;
+        private readonly employeeDBContext context;
+        private readonly IHostingEnvironment Env;
 
-        public EmployeeController(DataContext context)
+        public EmployeeController(employeeDBContext context, IHostingEnvironment _environment)
         {
             this.context = context;
+            this.Env = _environment;
         }
 
         [HttpGet]
@@ -38,7 +44,7 @@ namespace webAPI.Controllers
             emp.EmployeeId = req.EmployeeId;    
             emp.DateOfJoining = req.DateOfJoining;
             emp.EmployeeName = req.EmployeeName;
-            emp.photofilename = req.photofilename;
+            emp.Photofilename = req.Photofilename;
             emp.Department = req.Department;
 
             await context.SaveChangesAsync();
@@ -54,5 +60,41 @@ namespace webAPI.Controllers
             await context.SaveChangesAsync();
             return Ok(await context.Employees.ToListAsync());
         }
+
+        [Route("SaveFile")]
+        [HttpPost]
+        public JsonResult SaveFile()
+        {
+            try
+            {
+                var httpRequest = Request.Form;
+                var postedFile = httpRequest.Files[0];
+                string filename = postedFile.FileName;
+                var physicalPath = Env.ContentRootPath + "/photos/" + filename;
+
+                using (var stream = new FileStream(physicalPath, FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                }
+
+                return new JsonResult(filename);
+            }
+            catch (Exception)
+            {
+                return new JsonResult("anonymous.png");
+            }
+        }
+
+        [Route("GetAllDepartmentNames")]
+        [HttpGet]
+        public dynamic GetAllDepartmentNames()
+        {
+            return context.Employees
+              .Select(x => new
+              {
+                  x.Department
+              }).ToArray();
+}
+
     }
 }
