@@ -1,4 +1,35 @@
-<table class="table table-stripped">
+
+
+<button type="button" class="btn btn-primary float-end m-2"  
+data-bs-toggle="modal" data-bs-target="#exampleModal"
+(click)="addClick()"
+
+>
+    Add Department
+  </button>
+  
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" 
+  data-bs-backdrop="static" data-bs-keyboard="false"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+          <button type="button" class="btn-close" 
+          data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeClick()"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <app-add-edit-dep> [dep]="dep" *ngIf="ActivateAddEditDepComp"></app-add-edit-dep>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>DepartmentId</th>
@@ -8,8 +39,8 @@
     </thead>
     <tbody>
         <tr *ngFor="let dataitem of departmentList">
-            <td>{{dataitem.DepartmentId}}</td>
-            <td>{{dataitem.DepartmentName}}</td>
+            <td>{{dataitem.departmentId}}</td>
+            <td>{{dataitem.departmentName}}</td>
             <td>
                 <button type="button" class="btn btn-light mr-1">Edit</button>
                 <button type="button" class="btn btn-light mr-1">Delete</button>

@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ruth\\Documents\\C-Sharp-and-ASP.NET-projects\\webAPI with Angular\\webAPI\\webAPI.csproj": {}
+    "C:\\Users\\ruth\\Documents\\C-Sharp-and-ASP.NET-projects\\webAPI with Angular\\webAPI\\webAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ruth\\Documents\\C-Sharp-and-ASP.NET-projects\\webAPI with Angular\\webAPI\\webAPI.csproj": {
+    "C:\\Users\\ruth\\Documents\\C-Sharp-and-ASP.NET-projects\\webAPI with Angular\\webAPI\\webAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ruth\\Documents\\C-Sharp-and-ASP.NET-projects\\webAPI with Angular\\webAPI\\webAPI.csproj",
+        "projectUniqueName": "C:\\Users\\ruth\\Documents\\C-Sharp-and-ASP.NET-projects\\webAPI with Angular\\webAPI\\webAPI.csproj",
         "projectName": "webAPI",
-        "projectPath": "C:\\Users\\Ruth\\Documents\\C-Sharp-and-ASP.NET-projects\\webAPI with Angular\\webAPI\\webAPI.csproj",
-        "packagesPath": "C:\\Users\\Ruth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ruth\\Documents\\C-Sharp-and-ASP.NET-projects\\webAPI with Angular\\webAPI\\obj\\",
+        "projectPath": "C:\\Users\\ruth\\Documents\\C-Sharp-and-ASP.NET-projects\\webAPI with Angular\\webAPI\\webAPI.csproj",
+        "packagesPath": "C:\\Users\\ruth\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ruth\\Documents\\C-Sharp-and-ASP.NET-projects\\webAPI with Angular\\webAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Ruth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ruth\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

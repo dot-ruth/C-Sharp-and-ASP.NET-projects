@@ -10,19 +10,33 @@ export class ShowDepComponent implements OnInit {
 
   constructor(private service:SharedService) { }
 
-  departmentList:any = null;
+  departmentList:any = [];
+  ModalTitle:string = "";
+  ActivateAddEditDepComp:boolean=false;
+  dep:any;
+
 
   ngOnInit(): void {
-    console.log(this.departmentList);
     this.refreshdepList();
-    
+  }
+  addClick(){
+  this.dep={
+    departmentId:0,
+    departmentName:""
+  }
+  this.ModalTitle="Add Department";
+  this.ActivateAddEditDepComp=true;
+  console.log(this.ActivateAddEditDepComp)
+  }
+  closeClick(){
+    this.ActivateAddEditDepComp=false;
+    this.refreshdepList();
   }
 
-  refreshdepList(){
-    this.service.getDeptList().subscribe(data => {
+  refreshdepList ()  {
+    this.service.getDeptList().subscribe(
+      (data ) => {
      this.departmentList = data;
-     console.log(this.departmentList);
     });
-    //console.log(this.departmentList);
   }
 }
